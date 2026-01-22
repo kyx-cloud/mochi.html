@@ -32,7 +32,7 @@
                 <img src="./img/png2.png "alt="團子">
             </div>
             <div class="product-info">
-                <h1>團子 2入</h1>
+                <h1> 糰子 2入</h1>
                 <p class="price">NT$80</p>
                 <p class="description">鬆軟的麵包體搭配可口的黃豆餡，香氣伴著綿滑滋味，溫潤地在味蕾縈繞。
 單筆4入現折20元，欲選購綜合口味可至綜合賣場</p>
@@ -40,15 +40,14 @@
                     <p>4入優惠</p>
                     <p>團體優惠活動</p>
                 </div>
-                <div class="quantity">
-                    <button>-</button>
-                    <input type="number" value="1" min="1">
-                    <button>+</button>
-                </div>
-                <div class="actions">
-                    <button class="add-to-cart">加入購物車</button>
-                    <button class="buy-now">立即購買</button>
-                </div>
+            <div class="quantity">
+                <button id="minus">-</button>
+                <input id="qty" type="number" value="1" min="1">
+                <button id="plus">+</button>
+              </div>
+              
+              <button id="addCart">加入購物車</button>
+       
             </div>
         </div>
 
@@ -93,25 +92,62 @@
           
         
    
-        
-
-     <!-- Footer -->
-     <footer class="footer">
+    <footer>
+        <!-- Footer -->
         <div class="footer-container">
-   <div style="display: flex;gap: 10px;">
-     <span>TOP</span>
-       <span>麻糬 </span> 
-        <span>ABOUT </span>
-        <span>OFFICIALAPP</span>
-   </div>
-           
-        <p ><img src="./img/logo 1.png" alt=""></p>
-       <p>地址｜台北市大安區仁愛路5巷</p><p>統一編號｜24687347</p>
-                 <p>電話｜02-8243-6384.</p> <p>mochi © 菓匠きくたろう All rights reserved.</p>
-                
-              </div>
-     </footer>
+          <div class="footer-nav">
+            <span>TOP</span>
+            <span>麻糬</span>
+            <span>ABOUT</span>
+            <span>OFFICIALAPP</span>
+          </div>
+      <!-- 左邊 -->
+      <div class="footer-left">
+        <img src="./img/logo 1.png" alt="">
+        <p>地址｜台北市大安區仁愛路5巷</p>
+        <p>統一編號｜24687347</p>
+        <p>電話｜02-8243-6384</p>
+        <p>mochi © 菓匠きくたろう All rights reserved.</p>
+      </div>
+    </div>
+        </footer>
  
+    
+<script>
+    const minus = document.getElementById("minus");
+    const plus  = document.getElementById("plus");
+    const qty   = document.getElementById("qty");
+    
+    minus.onclick = () => {
+      if (qty.value > 1) qty.value--;
+    };
+    
+    plus.onclick = () => {
+      qty.value++;
+    };
+    
+    document.getElementById("addCart").onclick = () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+      const product = {
+        id: "tyuww-2",        // ⬅ 每頁改這
+        name: "糰子 2入",      // ⬅ 每頁改這
+        price: 80,              // ⬅ 每頁改這
+        qty: Number(qty.value), 
+        img: "img/png2.png" 
+      };
+    
+      const exist = cart.find(p => p.id === product.id);
+      if (exist) {
+        exist.qty += product.qty;
+      } else {
+        cart.push(product);
+      }
+    
+      localStorage.setItem("cart", JSON.stringify(cart));
+      window.location.href = "index.html";
+    };
+    </script>
     
 </body>
 </head>

@@ -42,15 +42,14 @@
                     <p>團體優惠活動</p>
                 </div>
                 <div class="quantity">
-                    <button>-</button>
-                    <input type="number" value="1" min="1">
-                    <button>+</button>
+                    <button id="minus">-</button>
+                    <input id="qty" type="number" value="1" min="1">
+                    <button id="plus">+</button>
+                  </div>
+                  
+                  <button id="addCart">加入購物車</button>
+           
                 </div>
-                <div class="actions">
-                    <button class="add-to-cart">加入購物車</button>
-                    <button class="buy-now">立即購買</button>
-                </div>
-            </div>
         </div>
   
     
@@ -101,26 +100,62 @@
         
    
         
-
-     <!-- Footer -->
-     <footer class="footer">
-        <div class="footer-container">
-   <div style="display: flex;gap: 10px;">
-     <span>TOP</span>
-       <span>麻糬 </span> 
-        <span>ABOUT </span>
+<footer>
+    <!-- Footer -->
+    <div class="footer-container">
+      <div class="footer-nav">
+        <span>TOP</span>
+        <span>麻糬</span>
+        <span>ABOUT</span>
         <span>OFFICIALAPP</span>
-   </div>
-           
-        <p ><img src="./img/logo 1.png" alt=""></p>
-       <p>地址｜台北市大安區仁愛路5巷</p><p>統一編號｜24687347</p>
-                 <p>電話｜02-8243-6384.</p> <p>mochi © 菓匠きくたろう All rights reserved.</p>
-                
-              </div>
-     </footer>
- 
+      </div>
+  <!-- 左邊 -->
+  <div class="footer-left">
+    <img src="./img/logo 1.png" alt="">
+    <p>地址｜台北市大安區仁愛路5巷</p>
+    <p>統一編號｜24687347</p>
+    <p>電話｜02-8243-6384</p>
+    <p>mochi © 菓匠きくたろう All rights reserved.</p>
+  </div>
+</div>
+    </footer>
    
     
+<script>
+    const minus = document.getElementById("minus");
+    const plus  = document.getElementById("plus");
+    const qty   = document.getElementById("qty");
+    
+    minus.onclick = () => {
+      if (qty.value > 1) qty.value--;
+    };
+    
+    plus.onclick = () => {
+      qty.value++;
+    };
+    
+    document.getElementById("addCart").onclick = () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+      const product = {
+        id: "fjie-1",        // ⬅ 每頁改這
+        name: "干貝禮盒 1入",      // ⬅ 每頁改這
+        price: 120,              // ⬅ 每頁改這
+        qty: Number(qty.value), 
+        img: "img/jpg6.jpg" 
+      };
+    
+      const exist = cart.find(p => p.id === product.id);
+      if (exist) {
+        exist.qty += product.qty;
+      } else {
+        cart.push(product);
+      }
+    
+      localStorage.setItem("cart", JSON.stringify(cart));
+      window.location.href = "index.html";
+    };
+    </script>
 </body>
 
 

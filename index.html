@@ -129,23 +129,27 @@
   }
   .gift-item p{
     font-size: 0.8rem;
-  }.footer span {
-        font-size: 0.8rem;
-        margin-left: 0px;
-      text-align: center;
-        margin-right: 0px;
-        margin-top: 2px;
-        margin: 10px;
-
-      }
-      .footer p{
-        font-size: 0.8rem;
-        position: left;
-        margin:0%;
-        margin-bottom: 0px;
-        margin-top: 10px;
-        text-align: left;
-      }
+  }
+  .footer-nav {
+    display: flex;
+    gap: 50px;
+    font-size: 12px;
+    color: #555;
+    margin: 0 auto;
+  margin-left: 0px;
+    text-align: center;
+    
+  }
+  .footer-left p {
+    font-size: 12px;
+    color: #555;
+  
+  }
+  .footer-left  {
+  margin-top: 300px;
+  margin-bottom: 0px;
+  
+  }
   .footer img{
    text-align: left;
    margin-top: 300px;
@@ -344,24 +348,29 @@
             </div>
         </div>
     </section>
-
+<footer>
     <!-- Footer -->
-    <footer class="footer">
-       <div class="footer-container">
-  <div style="display: flex;gap: 10px;">
-    <span>TOP</span>
-      <span>麻糬 </span> 
-       <span>ABOUT </span>
-       <span>OFFICIALAPP</span>
+    <div class="footer-container">
+      <div class="footer-nav">
+        <span>TOP</span>
+        <span>麻糬</span>
+        <span>ABOUT</span>
+        <span>OFFICIALAPP</span>
+      </div>
+  <!-- 左邊 -->
+  <div class="footer-left">
+    <img src="./img/logo 1.png" alt="">
+    <p>地址｜台北市大安區仁愛路5巷</p>
+    <p>統一編號｜24687347</p>
+    <p>電話｜02-8243-6384</p>
+    <p>mochi © 菓匠きくたろう All rights reserved.</p>
   </div>
-          
-       <p ><img src="./img/logo 1.png" alt=""></p>
-      <p>地址｜台北市大安區仁愛路5巷</p>
-      <p>統一編號｜24687347</p>
-                <p>電話｜02-8243-6384.</p> 
-                <p>mochi © 菓匠きくたろう All rights reserved.</p>
-               
-             </div>
+
+ 
+ 
+
+</div>
+
     </footer>
 
     <script>
@@ -388,6 +397,24 @@
     });
     const panel = document.getElementById("dropdownPanel");
 const cartCount = document.getElementById("cartCount");
+/* ===== 更新購物車數字（含動畫）===== */
+function updateCartBadge(animate = false) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+
+  if (count > 0) {
+    updateCartBadge(false);
+    cartCount.classList.remove("hidden");
+
+    if (animate) {
+      cartCount.classList.remove("pop");
+      void cartCount.offsetWidth; // 讓動畫可以重播
+      cartCount.classList.add("pop");
+    }
+  } else {
+    cartCount.classList.add("hidden");
+  }
+}
 
 document.querySelectorAll(".open-btn").forEach(btn=>{
   btn.onclick = ()=>{
@@ -434,6 +461,91 @@ document.querySelectorAll(".open-btn").forEach(btn=>{
 
 // demo cart count
 cartCount.textContent = 0;
+
+/* ===== 購物車顯示 ===== */
+function renderCart() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const panel = document.getElementById("dropdownPanel");
+  const cartCount = document.getElementById("cartCount");
+
+  let total = 0;
+  let count = 0;
+
+  let html = `<h2>購物車</h2><div id="cartItems">`;
+
+  cart.forEach((item, index) => {
+    total += item.price * item.qty;
+    count += item.qty;
+
+    html += `
+      <div class="cart-row">
+        <img src="${item.img}">
+        <div class="cart-info">
+          <p>${item.name}</p>
+          <div class="cart-qty">
+            <button onclick="changeQty(${index}, -1)">−</button>
+            <span>${item.qty}</span>
+            <button onclick="changeQty(${index}, 1)">＋</button>
+          </div>
+        </div>
+        <button class="remove" onclick="removeItem(${index})">刪除</button>
+      </div>
+    `;
+  });
+
+  html += `
+    </div>
+    <p id="cartTotal">總金額 NT$${total}</p>
+    <button id="checkoutBtn">結帳</button>
+    <button class="close-btn">關閉</button>
+  `;
+
+  panel.innerHTML = html;
+  cartCount.textContent = count;
+
+  panel.querySelector(".close-btn").onclick = () => {
+    panel.classList.remove("show");
+  };
+
+  document.getElementById("checkoutBtn").onclick = () => {
+    alert("結帳成功（示意）");
+    localStorage.removeItem("cart");
+    renderCart();
+  };
+}
+
+/* ===== 改數量 ===== */
+function changeQty(index, delta) {
+  const cart = JSON.parse(localStorage.getItem("cart"));
+  cart[index].qty += delta;
+
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+/* ===== 刪除 ===== */
+function removeItem(index) {
+  const cart = JSON.parse(localStorage.getItem("cart"));
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+/* ===== 點購物車 icon 時 ===== */
+document.querySelector('[data-type="cart"]').addEventListener("click", () => {
+  renderCart();
+});
+// ⭐⭐⭐ 首頁一載入就更新購物車數量
+updateCartBadge(false);
+
+// 頁面載入時顯示購物車數量（不播動畫）
+updateCartBadge(false);
+
+
 </script>
 
 

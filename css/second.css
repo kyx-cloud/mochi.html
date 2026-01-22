@@ -16,10 +16,127 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+.dropdown-panel{
+    position:absolute;
+    top:100%;
+    right:20px;
+    width:340px;
+    background-color: #f5f5f5;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 12px 30px rgba(0,0,0,.2);
+    display:none;
+  }
+  .dropdown-panel.show{ display:block; }
+  
+  .dropdown-panel h2{ font-size:20px; margin-bottom:10px; }
+  .dropdown-panel input{
+    width:100%;
+    padding:6px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius:10px;
+    border:0.2px solid #ccc;
+  }
+  .dropdown-panel .row-item{
+    display:flex;
+    justify-content:space-between;
+    margin:4px 0;
+}
+.close-btn{
+  margin-top:15px;
+  border:none;
+  background:#4c4c4c;
+  border-radius:20px;
+  padding:6px 16px;
+color:#f5f5f5;
+display: block;      /* ⬅️ 強制換行 */
+ 
+}
+.close-btn:hover{
+     background: #999;
+   
+  }
+.list-links {
+    margin-top: 10px;
+    margin-bottom: 20px; /* 跟關閉按鈕拉開距離 */
+  }
+  /* ===== 下拉卡片內的選單樣式 ===== */
+.dropdown-panel a {
+    color: #222;              /* 黑色文字 */
+    text-decoration: none;    /* ❌ 拿掉底線 */
+    font-size: 16px;
+    display: block;
+    padding: 12px 0;
+    transition: color 0.8s ease;
+  }
+  
+  /* hover 變淺色 */
+  .dropdown-panel a:hover {
+    color: #999;              /* 淺灰 */
+  }
+  
+ 
+
+  .cart-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .cart-row img {
+    width: 50px;
+    border-radius: 6px;
+  }
+  
+  .cart-info {
+    flex: 1;
+  }
+  
+  .cart-qty button {
+    border: none;
+    background: #eee;
+    border-radius: 6px;
+    padding: 2px 8px;
+  }
+  
+  .remove {
+    border: none;
+    background: none;
+    color: #999;
+  }
+  
+
+
+  
+/* ===== 強制移除 Logo 點擊框線（最終解法） ===== */
+
+
+.logo img {
+  border: none !important;
+  outline: none !important;
+}
+
+.logo a:focus img,
+.logo a:active img {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+  
 .logo img {
     height: 50px;
 }
-
+.breadcrumb a {
+    color: #555;
+    text-decoration: none;
+  }
+  
+  .breadcrumb a:hover {
+    color: #111;
+  }
+  
 .nav ul {
     display: flex;
 }
@@ -176,44 +293,98 @@ align-content: center;
 }
 /* Footer */
 .footer {
-    margin-top: 100px;
     padding: 90px;
-    background-color:#ececec
+    background-color:#676767;
 }
 
 .footer-container{
-    justify-content: right;
-   flex-direction:column;
-   gap: 2px;
+    display: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 90px;
+  background-color:#f5f5f5;
 }
 .footer img{
-     size:30%;
+     size:60%;
     text-align: right;
     margin-top: 300px;
 }
-
-.footer p{
-    margin-top: 10px;
-    text-align:right;
-    margin-left: 1000px;
-    gap: 10px;
-}
-.footer span{
-    size: 5px;
-    justify-content: center;
-    margin-top: 1px;
-   gap: 10px;
-   margin-left: 150px;
-   margin-right: 100px;
-   color: #555;
-}
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 600px;
+  }
+  
+  .footer-left img {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-left p {
+    font-size: 14px;
+    color: #555;
+  
+  }
+  
+  .footer-nav {
+    display: flex;
+    gap: 300px;
+    font-size: 16px;
+    color: #555;
+    margin: 0 auto;
+  margin-left: 100px;
+    text-align: center;
+    
+  }
+  
 @media (max-width: 768px) {
+   
     .product-page {
         max-width: 1200px;
         margin: 20px 10px;
         padding: 0px;
     }
    
+.dropdown-panel {
+    position: fixed;          /* 不跟著 header 走 */
+    top: 60px;                /* header 高度下面 */
+    left: 0;
+    right: 0;
+  
+    width: 100%;
+    max-width: none;
+    border-radius: 0 0 20px 20px;
+  
+    padding: 24px 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.25s ease;
+  }
+  
+  .dropdown-panel.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* LIST 文字放大一點，像手機選單 */
+  .dropdown-panel a {
+    font-size: 18px;
+    padding: 16px 0;
+  }
+  
+  /* 關閉按鈕變大、好點 */
+  .dropdown-panel .close-btn {
+    margin-top: 30px;
+    padding: 10px 24px;
+    font-size: 16px;
+  }
+  }
+  
 .product-content {
     display:grid;
     gap: 10px;
@@ -262,24 +433,53 @@ align-content: center;
         margin-left: 40px;
         margin-bottom: 10px;
     }
-    
-    .footer span {
-        font-size: 0.8rem;
-        row-gap: 10px;
-        margin-left: 22px;
-      text-align: center;
-        margin-right: 0px;
-        margin-top: 2px;
-      }
-      .footer p{
-        font-size: 0.8rem;
-        position: center;
-        margin:0%;
-        margin-top: 5px;
-        text-align: right;
-      }
-      .footer img{
-       text-align: right;
-       margin-top: 300px;
-      }
+   
+/* Footer */
+.footer {
+    padding: 90px;
+    background-color:#676767;
 }
+
+.footer-container{
+    display: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 90px;
+  background-color:#f5f5f5;
+}
+.footer img{
+     size:60%;
+    text-align: right;
+    margin-top: 300px;
+}
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 600px;
+  }
+  
+  .footer-left img {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-left p {
+    font-size: 14px;
+    color: #555;
+  
+  }
+  
+  .footer-nav {
+    display: flex;
+    gap: 300px;
+    font-size: 16px;
+    color: #555;
+    margin: 0 auto;
+  margin-left: 100px;
+    text-align: center;
+    
+  }
+  
