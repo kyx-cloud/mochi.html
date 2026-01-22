@@ -327,12 +327,19 @@ display: block;      /* ⬅️ 強制換行 */
     width: 300px;
     margin: 10px;
 }
-
+.product-item img:hover {
+    text-align: center;
+    width: 800px;
+    margin: 10px;
+}
 .product-item p {
     margin-top: 10px;
     font-weight: bold;
 }
-
+.product-item p:hover {
+ color: #999;
+   
+}
 .product-item button {
     background:#ddd;
     border: none;
@@ -403,11 +410,15 @@ display: block;      /* ⬅️ 強制換行 */
     background-color: #666;
 }
 .gift-item img{
-  width: 10cm;
+  width: 18cm;
   height: 6.7cm;
   margin-bottom: 20px;
 }
-
+.gift-item img:hover{
+    width: 14cm;
+    height:8.7cm;
+    margin-bottom: 20px;
+  }
 
 
 /* Footer */
