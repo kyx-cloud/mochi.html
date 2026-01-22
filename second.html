@@ -107,7 +107,33 @@
      </footer>
  
    
-    
+     <script>
+        const addBtn = document.querySelector(".add-to-cart");
+        const qtyInput = document.querySelector(".quantity input");
+        
+        addBtn.addEventListener("click", () => {
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+          const product = {
+            id: "kikuka",
+            name: "北九菓 2入",
+            price: 120,
+            qty: Number(qtyInput.value),
+            img: "./img/second.jpg"
+          };
+        
+          const exist = cart.find(p => p.id === product.id);
+          if (exist) {
+            exist.qty += product.qty;
+          } else {
+            cart.push(product);
+          }
+        
+          localStorage.setItem("cart", JSON.stringify(cart));
+          alert("已加入購物車！");
+        });
+        </script>
+        
 </body>
 
 </html>
