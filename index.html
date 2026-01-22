@@ -48,6 +48,27 @@
 ========================= */
 @media (max-width: 768px) {
 
+  .news {
+    padding: 24px 16px;
+  }
+
+  .news-list {
+    max-width: 100%;        /* 手機吃滿但有 padding */
+  }
+
+  .news-item {
+    padding: 16px 0;
+  }
+
+  .news-title {
+    font-size: 15px;
+  }
+
+  .news-preview,
+  .news-content {
+    font-size: 14px;
+    line-height: 1.8;
+  }
 .dropdown-panel {
   position: fixed;          /* 不跟著 header 走 */
   top: 60px;                /* header 高度下面 */
@@ -130,6 +151,7 @@
   .gift-item p{
     font-size: 0.8rem;
   }
+
   .footer-nav {
     display: flex;
     gap: 50px;
@@ -137,8 +159,8 @@
     color: #555;
     margin: 0 auto;
   margin-left: 0px;
-    text-align: center;
-    
+    text-align: left;
+    flex-direction: column;
   }
   .footer-left p {
     font-size: 12px;
@@ -226,28 +248,86 @@
     </button>
   </div>
 
-  
+  <h2>最新消息</h2>
+  <hr>
     <!-- 最新消息 -->
     <section id="news" class="news">
-    <h2>最新消息</h2>
-   
-    </section>
-    <hr>
-       <div class="newscontainer">
-       <div class="text" >
-        <ul>
-            <li>2024.4/28 | 吉安店開幕日</li>
-        </ul>
-        <ul>
-            <li>2024.4/30 | 午茶派對活動</li>
-        </ul>
-        <ul>
-            <li>2024.5/2 | 全店買一送一促銷活動</li>
-        </ul>
 
-       <p>查看更多
-       <button><img src="./img/箭頭.png"></span></button></p>
-    </div>
+  <ul class="news-list">
+    <li class="news-item">
+      <div class="news-header">
+        <span class="news-title">2024.4/28｜吉安店正式開幕</span>
+        <span class="news-arrow">▸</span>
+      </div>
+      <p class="news-preview">
+        吉安店全新開幕，邀請您一同品嚐和菓子的細緻風味。
+      </p>
+      <div class="news-content">
+        吉安門市於 4 月 28 日正式開幕，現場提供多款人氣商品試吃，
+        開幕期間凡消費即享限定優惠。歡迎蒞臨體驗日式和菓子的溫柔滋味。
+      </div>
+    </li>
+  
+    <li class="news-item">
+      <div class="news-header">
+        <span class="news-title">2024.4/30｜午茶派對限定活動</span>
+        <span class="news-arrow">▸</span>
+      </div>
+      <p class="news-preview">
+        午後時光，為自己準備一場甜點小派對。
+      </p>
+      <div class="news-content">
+        即日起至 5 月底，平日下午 2 點至 5 點推出午茶派對優惠，
+        指定商品組合享折扣價，適合與朋友共享悠閒午後時光。
+      </div>
+    </li>
+  
+    <li class="news-item">
+      <div class="news-header">
+        <span class="news-title">2024.5/02｜全店買一送一活動</span>
+        <span class="news-arrow">▸</span>
+      </div>
+      <p class="news-preview">
+        人氣商品限時回饋，數量有限。
+      </p>
+      <div class="news-content">
+        5 月限定全店指定品項買一送一，
+        數量有限、售完為止。活動詳情請依門市公告為準。
+      </div>
+    </li>
+  
+    <li class="news-item">
+      <div class="news-header">
+        <span class="news-title">2024.5/10｜母親節禮盒預購開跑</span>
+        <span class="news-arrow">▸</span>
+      </div>
+      <p class="news-preview">
+        用一份溫柔的甜，傳達心中的感謝。
+      </p>
+      <div class="news-content">
+        母親節限定禮盒即日起開放預購，
+        精選多款經典口味，搭配專屬包裝，
+        數量有限，建議提前訂購。
+      </div>
+    </li>
+  
+    <li class="news-item">
+      <div class="news-header">
+        <span class="news-title">2024.5/20｜新品「半月燒」上市</span>
+        <span class="news-arrow">▸</span>
+      </div>
+      <p class="news-preview">
+        鬆軟外皮搭配細緻內餡，全新登場。
+      </p>
+      <div class="news-content">
+        全新推出「半月燒」系列商品，
+        以柔軟口感與濃郁內餡為特色，
+        即日起於門市與官網同步販售。
+      </div>
+    </li>
+  
+  </ul>
+    </section>
   </div>
   <hr>
  <!-- 菓子 Section -->
@@ -548,12 +628,15 @@ updateCartBadge(false);
 updateCartBadge(false);
 
 
-</script>
-
-
-
-   
-      
-
+</script>  
+<script>
+  document.querySelectorAll(".news-header").forEach(header => {
+    header.addEventListener("click", () => {
+      header.parentElement.classList.toggle("active");
+    });
+  });
+  </script>
+  
+  
 </body>
 </html>

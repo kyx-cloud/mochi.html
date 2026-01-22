@@ -242,23 +242,103 @@ display: block;      /* ⬅️ 強制換行 */
     height: 820px;
     width: 100%;
 }
-/* 最新消息 */
 .news {
-    position: left;
-    text-align: center;
-    padding: 10px 60px;
-    display: inline-block;
-    gap: 20px;
-    
+  display: flex;
+  justify-content: center;   /* ⬅️ 整個區塊置中 */
+  padding: 40px 20px;
 }
-.news h2{
-    text-align: left;
-    margin-bottom: 20px;
-    gap: 30px;
-    color:#030303;
- margin-top: 20px;
+h2{
+  margin-top: 300px;
+  padding-top: 20px;
+  text-align: left;
+  margin-bottom: 20px;
+  gap: 30px;
+  color:#050505;
+  margin-left: 40px;
+  display: inline-block;
+ 
+}
+.news-list {
+  list-style: none;
+  padding: 0;
+}
 
+/* 每一則 */
+.news-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e5e5;
 }
+
+/* 標題列 */
+.news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 標題文字 hover 底線 */
+.news-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.news-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: #333;
+  transition: width 0.3s ease;
+}
+
+.news-header:hover .news-title::after {
+  width: 100%;
+}
+
+/* 箭頭 */
+.news-arrow {
+  font-size: 30px;
+  transition: transform 0.3s ease;
+}
+.news-arrow:hover {
+color:brown;
+}
+.news-item.active .news-arrow {
+  transform: rotate(90deg);
+}
+/* 預覽文字（永遠顯示） */
+.news-preview {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.8;          /* ⬅️ 行距變舒服 */
+  color: #666;
+  text-align: left;
+}
+
+/* 展開內容（預設收起） */
+.news-content {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.9;          /* ⬅️ 更鬆 */
+  color: #444;
+  display: none;
+  text-align: left;
+}
+
+/* 展開狀態 */
+.news-item.active .news-content {
+  display: block;
+}
+
+.news-item.active .news-arrow {
+  transform: rotate(90deg);
+}
+
 
 .text{
     text-align: left;
