@@ -121,7 +121,11 @@
     width: 50%;
 }
 
-    .text {
+.hero-copy {
+   display: none;
+
+  }
+  text {
       font-size: 0.8rem; /* 手機文字稍微縮小 */
       position: left;
       margin-left: 0%;
@@ -180,9 +184,31 @@
    margin-bottom: 10px;
   }
   .modal-content-modal4{
- position: relative;
+ position: relative; 
+}
+.story-hero {
+    height: 420px;
+    margin: 80px 0;
+  }
+
+  .story-content {
+    left: 6%;
+    right: 6%;
+    max-width: none;
+  }
+
+  .story-content h2 {
+    font-size: 22px;
+    letter-spacing: 3px;
+  }
+  .story-hero {
+    position: relative;
+    height: 280px;
+    margin: 120px 0;
+    overflow: hidden;
   }
 }
+
 </style>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -295,37 +321,7 @@
         數量有限、售完為止。活動詳情請依門市公告為準。
       </div>
     </li>
-  
-    <li class="news-item">
-      <div class="news-header">
-        <span class="news-title">2024.5/10｜母親節禮盒預購開跑</span>
-        <span class="news-arrow">▸</span>
-      </div>
-      <p class="news-preview">
-        用一份溫柔的甜，傳達心中的感謝。
-      </p>
-      <div class="news-content">
-        母親節限定禮盒即日起開放預購，
-        精選多款經典口味，搭配專屬包裝，
-        數量有限，建議提前訂購。
-      </div>
-    </li>
-  
-    <li class="news-item">
-      <div class="news-header">
-        <span class="news-title">2024.5/20｜新品「半月燒」上市</span>
-        <span class="news-arrow">▸</span>
-      </div>
-      <p class="news-preview">
-        鬆軟外皮搭配細緻內餡，全新登場。
-      </p>
-      <div class="news-content">
-        全新推出「半月燒」系列商品，
-        以柔軟口感與濃郁內餡為特色，
-        即日起於門市與官網同步販售。
-      </div>
-    </li>
-  
+
   </ul>
     </section>
   </div>
@@ -334,74 +330,71 @@
  <section id="products" class="products">
     <h2>菓子</h2>
     <hr>
+
     <div class="product-list">
         <div class="product-item">
+          <div class="product-item featured">
             <img src="./img/jpg1.jpg" alt="北九菓">
            <p>KIKUKA<br>北九菓</p>
            <a href="second.html">
+            <p class="price">NT$180</p>
+            <span class="tag hot">熱銷</span>
             <button>按此購買</button>
         </a>
+        </div>
         </div>
         <div class="product-item">
             <img src="./img/png4.png" alt="半月燒">
             <p>NAMA DORAYAKI<br>半月燒</p>
             <a href="three.html">
+              <p class="price">NT$100</p>
             <button>按此購買</button>
+         
+
+
         </a></div>
         <div class="product-item">
             <img src="./img/png3.png" alt="銅鑼燒">
             <p>DORAYAKI<br>銅鑼燒</p>
             <a href="four.html">
-           
+              <p class="price">NT$50</p>
+              <span class="tag hot">新品上市</span>
               <button>按此購買</button>
+        
             </a>
       </div>
         <div class="product-item">
             <img src="./img/png2.png" alt="糯子">
             <p>KIBIDANGO<br>糯子</p>
             <a href="five.html">
+              <p class="price">NT$80</p>
             <button>按此購買</button>
           </a>
         </div>
     </div>
     <hr>
 </section>
-    <!-- 輪播容器 -->
-  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-    <!-- 圓點指示器 -->
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-
-    <!-- 輪播內容 -->
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="./img/carousel-01.jpg" class="d-block w-100" alt="Slide 1">
-      </div>
-      <div class="carousel-item">
-        <img src="./img/carousel-02.jpg" class="d-block w-100" alt="Slide 2">
-      </div>
-      <div class="carousel-item">
-        <img src="./img/carousel-03.jpg" class="d-block w-100" alt="Slide 3">
-      </div>
-    </div>
-
-
-    <!-- 左右切換按鈕 -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">上一張</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">下一張</span>
-    </button>
+<section class="story-section">
+  <div class="story-inner">
+    
+    <!-- 左：主視覺 -->
+    <!-- ================= 敘事主視覺（圖片＋漸變＋文字疊加） ================= -->
+<section class="story-hero">
+  <div class="story-bg">
+    <img src="./img/gift-hero.jpg" alt="節慶禮盒">
+    <div class="story-gradient"></div>
   </div>
 
-  
-   
+  <div class="story-content">
+    <h2>節慶送禮，不只是甜，是心意。</h2>
+    <p>
+      我們相信，真正的好味道，  
+      是能被記住、也能被分享的溫柔。
+    </p>
+    <a href="seven.html" class="story-link">查看節慶禮盒 →</a>
+  </div>
+</section>
+
 
     <!-- 節慶禮盒 -->
     <section class="gifts">
@@ -485,18 +478,34 @@ function updateCartBadge(animate = false) {
   const count = cart.reduce((sum, item) => sum + item.qty, 0);
 
   if (count > 0) {
-    updateCartBadge(false);
+    cartCount.textContent = count;   // ✅ 真正更新數字
     cartCount.classList.remove("hidden");
 
     if (animate) {
       cartCount.classList.remove("pop");
-      void cartCount.offsetWidth; // 讓動畫可以重播
+      void cartCount.offsetWidth;
       cartCount.classList.add("pop");
     }
   } else {
     cartCount.classList.add("hidden");
   }
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+  const justAdded = localStorage.getItem("justAddedToCart");
+
+  if (justAdded === "true") {
+    // 更新購物車數字
+    updateCartBadge(false);
+
+    // 直接打開購物車
+    renderCart();
+    panel.classList.add("show");
+
+    // 用完就刪，避免之後每次都自動打開
+    localStorage.removeItem("justAddedToCart");
+  }
+});
 
 document.querySelectorAll(".open-btn").forEach(btn=>{
   btn.onclick = ()=>{

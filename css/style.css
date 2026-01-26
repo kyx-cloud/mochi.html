@@ -239,8 +239,8 @@ display: block;      /* ⬅️ 強制換行 */
    position: left;
 }
 .carousel-inner img{
-    height: 820px;
-    width: 100%;
+  height: 70vh;
+  object-fit: cover;
 }
 .news {
   display: flex;
@@ -276,6 +276,10 @@ h2{
   align-items: center;
   cursor: pointer;
 }
+.product-item.featured {
+  transform: scale(1.15);
+
+}
 
 /* 標題文字 hover 底線 */
 .news-title {
@@ -283,6 +287,7 @@ h2{
   font-weight: 600;
   letter-spacing: 1px;
   text-align: left;
+  line-height: 1.6;
 }
 
 .news-title::after {
@@ -381,7 +386,7 @@ color:brown;
 .products {
     padding: 30px 20px;
     background-color: #fff;
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 30px;
 }
 
@@ -400,6 +405,8 @@ color:brown;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .product-item {
@@ -407,10 +414,14 @@ color:brown;
     width: 300px;
     margin: 10px;
 }
+.product-item img{
+
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
 .product-item img:hover {
-    text-align: center;
-    width: 800px;
-    margin: 10px;
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
 }
 .product-item p {
     margin-top: 10px;
@@ -440,7 +451,7 @@ color:brown;
 .gifts {
     padding: 30px 20px;
     text-align: left;
-    margin: 10px;
+    
 }
 
 .gifts h1 {
@@ -454,8 +465,7 @@ color:brown;
     margin-bottom: 10px;
     gap: 3px;
     size: 10px;
-    color:#050505;
-    display: inline-block;
+  margin-right: 40px;
     margin-top: 0px;
 }
 
@@ -489,15 +499,17 @@ color:brown;
     color:#ddd;
     background-color: #666;
 }
+
 .gift-item img{
   width: 18cm;
   height: 6.7cm;
+  transition: transform .3s ease, box-shadow .3s ease;
   margin-bottom: 20px;
 }
 .gift-item img:hover{
-    width: 14cm;
-    height:8.7cm;
     margin-bottom: 20px;
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
   }
 
 
@@ -549,4 +561,91 @@ color:brown;
     text-align: center;
     
   }
+  .carousel {
+    position: relative;
+  }
+  .product-item {
+    position: relative;
+  }
+  
+  .price {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+  }
+  
+  /* 商品標籤 */
+  .tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 999px;
+    background: #333;
+    color: #fff;
+  }
+  
+  .tag.hot { background: #8b5e3c; }   /* 日系棕 */
+  .tag.new { background: #dbaa49; }
+  .tag.limited { background: #a04c4c; }
+  .story-hero {
+    position: relative;
+    height: 520px;
+    margin: 120px 0;
+    overflow: hidden;
+  }
+  .story-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .story-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(0,0,0,0.45) 0%,
+      rgba(0,0,0,0.25) 40%,
+      rgba(0,0,0,0.05) 70%,
+      rgba(0,0,0,0) 100%
+    );
+  }
+  .story-content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    max-width: 420px;
+    color: #fff;
+    z-index: 2;
+  }
+  .story-content h2 {
+    font-size: 28px;
+    line-height: 1.6;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+  }
+  
+  .story-content p {
+    font-size: 15px;
+    line-height: 2;
+    opacity: 0.9;
+    margin-left: 30px;
+    margin-bottom: 32px;
+  }
+  
+  .story-link {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-left: 30px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+  }
+  
+  .story-link:hover {
+    opacity: .7;
+  }
+  
   

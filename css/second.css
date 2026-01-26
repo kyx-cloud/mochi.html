@@ -211,12 +211,26 @@ display: block;      /* ⬅️ 強制換行 */
     align-items: center;
     margin: 15px 0;
 }
-
+#addCart{
+  color: #3c3c3c;
+  background-color: #ddd;
+  border: none;
+  padding: 8px;
+  border-radius: 7px;
+}
+#addCart:hover{
+  color: #ffffff;
+  background-color: rgb(251, 100, 95);; 
+  border: none;
+  padding: 8px;
+  border-radius: 7px;
+}
 .quantity button {
     background: #ddd;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    border-radius: 7px;
 }
 
 .quantity input {
