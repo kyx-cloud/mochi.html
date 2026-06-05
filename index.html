@@ -8,7 +8,7 @@
     <!-- 引入 Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <body>
-   <!-- Header -->
+ 
   <style>
      
    .text {
@@ -53,7 +53,7 @@
   }
 
   .news-list {
-    max-width: 100%;        /* 手機吃滿但有 padding */
+    max-width: 100%;     
   }
 
   .news-item {
@@ -70,8 +70,8 @@
     line-height: 1.8;
   }
 .dropdown-panel {
-  position: fixed;          /* 不跟著 header 走 */
-  top: 60px;                /* header 高度下面 */
+  position: fixed;          
+  top: 60px;              
   left: 0;
   right: 0;
 
@@ -98,12 +98,7 @@
   padding: 16px 0;
 }
 
-/* 關閉按鈕變大、好點 */
-.dropdown-panel .close-btn {
-  margin-top: 30px;
-  padding: 10px 24px;
-  font-size: 16px;
-}
+
 }
 
 .nav button{
@@ -155,7 +150,29 @@
   .gift-item p{
     font-size: 0.8rem;
   }
-
+  .goods-item p {
+    font-size: 0.8rem;
+}
+.goods-item h2 {
+  font-size: 1.0rem;
+}
+.fruit-item p {
+    font-size: 0.8rem;
+}
+.fruit-item h2 {
+  font-size: 1.0rem;
+}
+.about-brand p {
+  font-size: 0.8rem;
+  line-height: 2;
+  color: #666;
+  margin-bottom: 16px;
+  max-width: 360px;
+}
+  .story-content p {
+    font-size: 0.8rem;
+    margin-left: 40px;
+}
   .footer-nav {
     display: flex;
     gap: 50px;
@@ -207,6 +224,29 @@
     margin: 120px 0;
     overflow: hidden;
   }
+
+.fruit2 h2{
+  font-size: 1.5rem;
+    margin-left: 0%;
+    position: left;
+    margin-right: 30px;
+    margin-left: 40px;
+}
+.gift2 h2{
+  font-size: 1.5rem;
+    margin-left: 0%;
+    position: left;
+    margin-right: 30px;
+    margin-left: 40px;
+
+}
+.pro2 h2{
+  font-size: 1.5rem;
+    margin-left: 0%;
+    position: left;
+    margin-right: 30px;
+    margin-left: 40px;
+}
 }
 
 </style>
@@ -216,7 +256,7 @@
   
    
 <!-- ================= HEADER ================= -->
-<header class="header" style="position:relative; z-index:10;">
+<header class="header" >
   <div class="logo">
     <img src="./img/logo 1.png" alt="Mochimochi Logo">
   </div>
@@ -224,9 +264,7 @@
   <nav class="nav">
     <button class="open-btn" data-type="search"><img src="./img/search.png"></button>
     <button class="open-btn" data-type="member"><img src="./img/user.png"></button>
-
-    <button class="open-btn cart-btn" data-type="cart">
-      <img src="./img/bag-shopping.png">
+    <button class="open-btn cart-btn" data-type="cart"><img src="./img/bag-shopping.png">
       <span class="cart-count" id="cartCount">0</span>
     </button>
 
@@ -274,11 +312,14 @@
     </button>
   </div>
 
-  <h2>最新消息</h2>
-  <hr>
+ 
     <!-- 最新消息 -->
-    <section id="news" class="news">
-
+ 
+      <div class="new">
+        <h2>最新消息</h2>
+        </div>
+      <hr>
+      <section id="news" class="news">
   <ul class="news-list">
     <li class="news-item">
       <div class="news-header">
@@ -321,11 +362,33 @@
         數量有限、售完為止。活動詳情請依門市公告為準。
       </div>
     </li>
-
   </ul>
     </section>
   </div>
   <hr>
+  <div class="about-text">
+    <h2>關於我們</h2>
+  </div>
+    <hr>
+  <section id="about" class="about-brand">
+      <div class="logo2-img">
+        <img src="./img/logo 1.png" alt="Mochi Mochi 品牌周邊">
+      </div>
+      <p>
+        Mochi Mochi 是以日系療癒感為核心的甜點品牌，
+        將不同口味的麻糬轉化為可愛的角色形象，
+        延伸出禮盒、袋裝包裝、貼紙、便條紙與紙袋等品牌周邊。
+      </p>
+      <p>
+        我們希望每一份甜點不只是食物，
+        也像一份小小的心意，能被送出、被收藏，也被記住。
+      </p>
+    </div>
+  
+    <div class="about-img">
+      <img src="./img/product.jpg" alt="Mochi Mochi 品牌周邊">
+    </div>
+  </section>
  <!-- 菓子 Section -->
  <section id="products" class="products">
     <h2>菓子</h2>
@@ -374,32 +437,50 @@
     </div>
     <hr>
 </section>
-<section class="story-section">
-  <div class="story-inner">
-    
-    <!-- 左：主視覺 -->
-    <!-- ================= 敘事主視覺（圖片＋漸變＋文字疊加） ================= -->
-<section class="story-hero">
-  <div class="story-bg">
-    <img src="./img/gift-hero.jpg" alt="節慶禮盒">
-    <div class="story-gradient"></div>
+<div class="story-bg">
+  <img src="./img/gift-hero.jpg" alt="水果禮盒">
+</div>
+<div id="fruit2" class="fruit2">
+  <h2>水果禮盒</h2>
   </div>
-
-  <div class="story-content">
-    <h2>節慶送禮，不只是甜，是心意。</h2>
-    <p>
-      我們相信，真正的好味道，  
-      是能被記住、也能被分享的溫柔。
-    </p>
-    <a href="seven.html" class="story-link">查看節慶禮盒 →</a>
+  <hr>
+<section id="fruit" class="fruit">
+  <div class="fruit-list">
+    <div class="fruit-item">
+      <img src="./img/gift1.png" alt="草莓禮盒">
+      <h2>草莓麻糬禮盒</h2>
+      <p>酸甜莓果香氣，搭配柔軟麻糬口感。</p>
+      <button>按此購買</button>
+    </div>
+    <div class="fruit-item">
+      <img src="./img/gift2.png" alt="橘子禮盒">
+      <h2>橘子麻糬禮盒</h2>
+      <p>清爽果香與綿密內餡的夏日組合。</p>
+      <button>按此購買</button>
+    </div>
+  </div>
+    <div class="fruit-list">
+    <div class="fruit-item">
+      <img src="./img/gift3.png" alt="藍莓禮盒">
+      <h2>藍莓麻糬禮盒</h2>
+      <p>帶有微酸果香的輕盈口味。</p>
+      <button>按此購買</button>
+    </div>
+    <div class="fruit-item">
+      <img src="./img/gift4.png" alt="抹茶紅豆禮盒">
+      <h2>哈密瓜麻糬禮盒</h2>
+      <p>清甜果香內餡的解膩搭配。</p>
+      <button>按此購買</button>
+    </div>
   </div>
 </section>
-
-
+<hr>
     <!-- 節慶禮盒 -->
-    <section class="gifts">
-        <h1>節慶禮盒</h1>
+    <div id="gift2" class="gift2">
+      <h2>其他節慶禮盒</h2>
+      </div>
         <hr>
+
         <div class="gift-list">
             <div class="gift-item">
                 <img src="./img/jpg5.jpg" alt="禮盒1">
@@ -427,14 +508,50 @@
             </div>
         </div>
         <hr>
+
+    <div id="pro2" class="pro2">
+      <h2>周邊商品</h2>
+      </div>
+      <hr>
+    <!-- 其他周邊 -->
+    <section id="goods" class="goods">
+      <div class="goods-list">
+        <div class="goods-item">
+          <img src="./img/paper2.jpg" alt="角色貼紙組">
+          <h2>角色貼紙組</h2>
+          <p>收錄四款麻糬角色與小花、蝴蝶結等可愛插圖。</p>
+          <a href="#">
+            <button>按此購買</button>
+          </a>
+        </div>
+    
+        <div class="goods-item">
+          <img src="./img/paper.jpg" alt="造型便條紙">
+          <h2>造型便條紙</h2>
+          <p>以麻糬角色外型製作，可撕取使用的療癒小物。</p>
+          <a href="#">
+            <button>按此購買</button>
+          </a>
+        </div>
+    
+        <div class="goods-item">
+          <img src="./img/package.png" alt="袋裝麻糬">
+          <h2>袋裝麻糬</h2>
+          <p>透明開窗包裝設計，能看見內部獨立包裝麻糬。</p>
+          <a href="#">
+            <button>按此購買</button>
+          </a>
+        </div>
+      </div>
     </section>
+   
 <footer>
     <!-- Footer -->
     <div class="footer-container">
       <div class="footer-nav">
-        <span>TOP</span>
-        <span>麻糬</span>
-        <span>ABOUT</span>
+        <a href="#top">TOP</a>
+<a href="#products">麻糬</a>
+<a href="#about">ABOUT</a>
         <span>OFFICIALAPP</span>
       </div>
   <!-- 左邊 -->
@@ -513,20 +630,197 @@ document.querySelectorAll(".open-btn").forEach(btn=>{
     panel.classList.add("show");
 
     if(type==="search"){
-      panel.innerHTML = `
-        <h2>搜尋</h2>
-        <input placeholder="搜尋商品名稱">
-        <button class="close-btn">關閉</button>`;
+  panel.innerHTML = `
+    <h2>搜尋商品</h2>
+
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="輸入商品名稱"
+      style="
+        width:100%;
+        padding:12px;
+        border:1px solid #ddd;
+        margin-bottom:15px;
+      "
+    >
+
+    <div id="searchResults"></div>
+
+    <button class="close-btn">關閉</button>
+  `;
+
+  const products = [
+    {
+      name:"北九菓",
+      url:"second.html",
+      price:"NT$180"
+    },
+    {
+      name:"半月燒",
+      url:"three.html",
+      price:"NT$100"
+    },
+    {
+      name:"銅鑼燒",
+      url:"four.html",
+      price:"NT$50"
+    },
+    {
+      name:"糯子",
+      url:"five.html",
+      price:"NT$80"
+    },
+    {
+      name:"芝麻禮盒",
+      url:"six.html",
+      price:"NT$680"
+    },
+    {
+      name:"干貝禮盒",
+      url:"seven.html",
+      price:"NT$880"
+    },
+    {
+      name:"和菓子禮盒",
+      url:"eight.html",
+      price:"NT$980"
+    }
+  ];
+
+  const input = document.getElementById("searchInput");
+  const resultBox = document.getElementById("searchResults");
+
+  input.addEventListener("input", () => {
+
+    const keyword = input.value.trim();
+
+    if(keyword === ""){
+      resultBox.innerHTML = "";
+      return;
     }
 
-    if(type==="member"){
-      panel.innerHTML = `
-        <h2>會員</h2>
-        <div class="row-item"><span>姓名 :</span><span>Guest</span></div>
-        <div class="row-item"><span>Email :</span><span>guest@example.com</span></div>
-        <div class="row-item"><span>電話 :</span><span>0912-345-678</span></div>
-        <button class="close-btn">關閉</button>`;
+    const result = products.filter(item =>
+      item.name.includes(keyword)
+    );
+
+    if(result.length === 0){
+      resultBox.innerHTML =
+      `<p>找不到相關商品</p>`;
+      return;
     }
+
+    resultBox.innerHTML = result.map(item => `
+      <a href="${item.url}"
+         style="
+           display:flex;
+           justify-content:space-between;
+           padding:12px 0;
+           border-bottom:1px solid #eee;
+           text-decoration:none;
+           color:#000;
+         ">
+        <span>${item.name}</span>
+        <span>${item.price}</span>
+      </a>
+    `).join("");
+  });
+
+  panel.querySelector(".close-btn").onclick =
+    ()=>panel.classList.remove("show");
+}
+
+if(type==="member"){
+
+const currentUser =
+  JSON.parse(localStorage.getItem("currentUser"));
+
+// 已登入
+if(currentUser){
+
+  panel.innerHTML = `
+    <h2>會員中心</h2>
+
+    <div class="member-info">
+      <p>姓名：${currentUser.name}</p>
+      <p>Email：${currentUser.email}</p>
+    </div>
+
+    <button id="logoutBtn">
+      登出
+    </button>
+
+    <button class="close-btn">
+      關閉
+    </button>
+  `;
+
+  document.getElementById("logoutBtn")
+    .onclick = ()=>{
+
+    localStorage.removeItem("currentUser");
+
+    alert("已登出");
+
+    panel.classList.remove("show");
+  };
+
+}else{
+
+  // 未登入
+  panel.innerHTML = `
+    <h2>會員登入</h2>
+
+    <input
+      id="loginEmail"
+      placeholder="Email"
+    >
+
+    <input
+      id="loginPassword"
+      type="password"
+      placeholder="密碼"
+    >
+
+    <button id="loginBtn">
+      登入
+    </button>
+
+    <hr>
+
+    <h2>註冊會員</h2>
+
+    <input
+      id="registerName"
+      placeholder="姓名"
+    >
+
+    <input
+      id="registerEmail"
+      placeholder="Email"
+    >
+
+    <input
+      id="registerPassword"
+      type="password"
+      placeholder="密碼"
+    >
+
+    <button id="registerBtn">
+      註冊
+    </button>
+
+    <button class="close-btn">
+      關閉
+    </button>
+  `;
+
+  initMemberSystem();
+}
+
+panel.querySelector(".close-btn").onclick =
+  ()=>panel.classList.remove("show");
+}
 
     if(type==="cart"){
       panel.innerHTML = `
@@ -539,9 +833,11 @@ document.querySelectorAll(".open-btn").forEach(btn=>{
       panel.innerHTML = `
      
         <div class="list-links">
-        <a href="index.html">首頁</a><hr>
-        <a href="seven.html">節慶禮盒</a><hr>
-        <a href="second.html">各式麻糬商品</a>
+          <a href="#about">品牌故事</a><hr>
+<a href="#products">菓子商品</a><hr>
+<a href="#fruit">水果禮盒</a><hr>
+<a href="#goods">品牌周邊</a><hr>
+<a href="#gifts">節慶禮盒</a>
       </div>
         <button class="close-btn">關閉</button>`;
     }
@@ -644,6 +940,87 @@ updateCartBadge(false);
       header.parentElement.classList.toggle("active");
     });
   });
+  function initMemberSystem(){
+
+// 註冊
+document.getElementById("registerBtn")
+?.addEventListener("click",()=>{
+
+  const name =
+    document.getElementById("registerName").value;
+
+  const email =
+    document.getElementById("registerEmail").value;
+
+  const password =
+    document.getElementById("registerPassword").value;
+
+  if(!name || !email || !password){
+    alert("請填寫完整資料");
+    return;
+  }
+
+  let users =
+    JSON.parse(localStorage.getItem("users"))
+    || [];
+
+  const existUser =
+    users.find(user=>user.email===email);
+
+  if(existUser){
+    alert("此帳號已註冊");
+    return;
+  }
+
+  users.push({
+    name,
+    email,
+    password
+  });
+
+  localStorage.setItem(
+    "users",
+    JSON.stringify(users)
+  );
+
+  alert("註冊成功");
+});
+
+// 登入
+document.getElementById("loginBtn")
+?.addEventListener("click",()=>{
+
+  const email =
+    document.getElementById("loginEmail").value;
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  const users =
+    JSON.parse(localStorage.getItem("users"))
+    || [];
+
+  const user =
+    users.find(item =>
+      item.email===email &&
+      item.password===password
+    );
+
+  if(!user){
+    alert("帳號或密碼錯誤");
+    return;
+  }
+
+  localStorage.setItem(
+    "currentUser",
+    JSON.stringify(user)
+  );
+
+  alert("登入成功");
+
+  location.reload();
+});
+}
   </script>
   
   
