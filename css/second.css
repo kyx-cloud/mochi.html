@@ -5,6 +5,16 @@ body {
     padding: 0;
     background-color: #ffffff;
     color: #333;
+    cursor: none;
+}
+#customCursor {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width .2s ease, height .2s ease;
 }
 /* Header */
 .header {
@@ -393,7 +403,15 @@ align-content: center;
         margin: 20px 10px;
         padding: 0px;
     }
-   
+    #customCursor {
+      position: fixed;
+      width: 70px;
+      height: 70px;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: width .2s ease, height .2s ease;
+    }
 .dropdown-panel {
     position: fixed;          /* 不跟著 header 走 */
     top: 60px;                /* header 高度下面 */

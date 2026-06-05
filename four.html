@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<!DOCTYPE html>
-    <html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,7 @@
 <button id="floatingAddCart" class="floating-cart-btn">
   加入購物車
 </button>
+<img id="customCursor" src="./img/ip01.png" alt="">
         <!-- Header -->
         <header class="header">
             <div class="logo">
@@ -150,6 +151,45 @@
       localStorage.setItem("cart", JSON.stringify(cart));
       window.location.href = "index.html";
     };
+    const cursor = document.getElementById("customCursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+const cursorMap = [
+  {
+    selector: "#about",
+    img: "./img/ip01.png"
+  },
+  {
+    selector: "#products",
+    img: "./img/ip02.png"
+  },
+  {
+    selector: "#fruit",
+    img: "./img/ip03.png"
+  },
+  {
+    selector: "#goods",
+    img: "./img/ip04.png"
+  },
+  {
+    selector: "#gifts",
+    img: "./img/ip04.png"
+  }
+];
+
+cursorMap.forEach(item => {
+  const section = document.querySelector(item.selector);
+
+  if(section){
+    section.addEventListener("mouseenter", () => {
+      cursor.src = item.img;
+    });
+  }
+});
     </script>
     
 <script src="./js/floating-cart.js"></script>

@@ -7,7 +7,7 @@
     <link href="./css/second.css" rel="stylesheet">
 </head>
 <body>
-  
+  <img id="customCursor" src="./img/ip01.png" alt="">
 <!-- ================= HEADER ================= -->
 <header class="header" style="position:relative; z-index:10;">
   <div class="logo">
@@ -145,6 +145,45 @@
       localStorage.setItem("justAddedToCart", "true");
       window.location.href = "index.html";
     };
+    const cursor = document.getElementById("customCursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+const cursorMap = [
+  {
+    selector: "#about",
+    img: "./img/ip01.png"
+  },
+  {
+    selector: "#products",
+    img: "./img/ip02.png"
+  },
+  {
+    selector: "#fruit",
+    img: "./img/ip03.png"
+  },
+  {
+    selector: "#goods",
+    img: "./img/ip04.png"
+  },
+  {
+    selector: "#gifts",
+    img: "./img/ip04.png"
+  }
+];
+
+cursorMap.forEach(item => {
+  const section = document.querySelector(item.selector);
+
+  if(section){
+    section.addEventListener("mouseenter", () => {
+      cursor.src = item.img;
+    });
+  }
+});
     </script>
        
 
